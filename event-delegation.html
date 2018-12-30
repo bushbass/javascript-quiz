@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+  <head>
+    <style>
+      .box{
+        height:100px; 
+        border: 1px solid black;
+        background: rgb(67, 156, 216);
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        color: #d2df1d;
+        font-size: 3rem;
+      }
+      </style>
+  </head>
+  <body>
+      <section>
+          <div class="container">
+            <div class="box">1</div>
+            <div class="box">2</div>
+            <div class="box">3</div>
+            <div class="box">4</div>
+            <div class="box">5</div>
+          </div>
+        </section>
+
+        <script>
+          let element1 = document.querySelector('.container')
+          element1.addEventListener('click', event=>console.log(event.target.innerText))
+        
+        </script>
+  </body>
+</html>

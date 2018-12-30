@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Fetching posts from my WordPress blog</h1>
+    <div class="blog"></div>
+
+    <script>
+      fetch('http://www.alexnielsen.com/wp-json/wp/v2/posts')
+        .then(res => res.json())
+        .then(data => {
+          document.querySelector('.blog').innerHTML = data[0].content.rendered;
+          console.log(data);
+        });
+    </script>
+  </body>
+</html>

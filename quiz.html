@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      .answer {
+        margin-bottom: 5px;
+      }
+      .result {
+        margin-top: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="answer"></div>
+      <p>Can you pick the right one?</p>
+      <div class="button-div">
+        <button value="0" id="true-button">zero</button> or
+        <button value="1" id="false-button">one</button> ?
+      </div>
+      <div class="result"></div>
+    </div>
+    <script>
+      let answer = 0;
+      let trueButton = document.getElementById('true-button');
+      let falseButton = document.getElementById('false-button');
+      let buttonDiv = document.querySelector('.button-div');
+      let answerDiv = document.querySelector('.answer');
+      let resultDiv = document.querySelector('.result');
+
+      function showCurrentAnswer() {
+        answerDiv.innerText = `The current correct answer is ${
+          answer == 0 ? 'zero' : 'one'
+        }`;
+      }
+
+      function getNewAnswer() {
+        answer = Math.floor(Math.random() * 2);
+        showCurrentAnswer();
+      }
+
+      showCurrentAnswer();
+
+      buttonDiv.addEventListener('click', event => {
+        if (event.target.value == answer) {
+          resultDiv.innerText = 'You got it right!';
+          console.log('correct');
+        } else {
+          resultDiv.innerText = "You're not very smart, are you?";
+
+          console.log('incorrect');
+        }
+        getNewAnswer();
+      });
+    </script>
+  </body>
+</html>

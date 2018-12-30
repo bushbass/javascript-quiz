@@ -1,0 +1,63 @@
+body {
+  font-family: Verdana;
+}
+
+.hero-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url('http://alexnielsen.com/wp-content/uploads/2018/12/alex-pink-background-pattern.png');
+  border-radius: 3px;
+}
+.hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 400px;
+  text-align: center;
+}
+
+.hero img {
+  width: 180px;
+  border-radius: 50%;
+  border: 3px solid #ffffff;
+}
+.hero img:hover {
+  transform: rotate(360deg);
+  transition: 0.5s;
+}
+
+.three-col-container {
+  display: flex;
+  justify-content: space-around;
+}
+.three-col-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 11px;
+  flex: 1;
+  /* border: 1px solid black; */
+}
+.three-col-box h3 {
+  align-self: center;
+}
+
+footer {
+  background-image: linear-gradient(
+    rgba(0, 0, 0, 0.2),
+    rgba(256, 256, 256, 0.8)
+  );
+  padding: 20px;
+  border-radius: 3px;
+}
+@media only screen and (max-width: 768px) {
+  .three-col-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .three-col-box {
+    max-width: 600px;
+  }
+}
