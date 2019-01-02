@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>question goes here</h1>
+    <ul>
+      <li id="a1">answer one goes here</li>
+      <li id="a2">answer two goes here</li>
+      <li id="a3">answer three goes here</li>
+    </ul>
+    <h3 class="result"></h3>
+    <form><button>Pick a new random question</button></form>
+    <script>
+      const questionArray = require('./questionArray');
+
+      let question = document.querySelector('h1');
+      let answer1 = document.querySelector('#a1');
+      let answer2 = document.querySelector('#a2');
+      let answer3 = document.querySelector('#a3');
+      let result = document.querySelector('.result');
+      console.log(questionArray);
+      let currentQuestion = Math.floor(Math.random() * questionArray.length);
+      console.log(currentQuestion);
+      question.innerText = questionArray[currentQuestion].question;
+      answer1.innerText = questionArray[currentQuestion].a;
+      answer2.innerText = questionArray[currentQuestion].b;
+      answer3.innerText = questionArray[currentQuestion].c;
+      let list = document.querySelector('ul');
+      list.addEventListener('click', event =>
+        (questionArray[currentQuestion].correctAnswer === event.target.innerText
+        ? true
+        : false)
+          ? (result.innerText = 'You got it right')
+          : (result.innerText = 'Nope, try again')
+      );
+    </script>
+  </body>
+</html>
